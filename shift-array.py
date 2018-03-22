@@ -3,12 +3,16 @@ def insertShiftArray(array, num):
     for n in array:
         length += 1
   
-    output_array = [0 for i in range(length + 1)]
-  
+    # output_array = [0 for i in range(length + 1)]
+
+    output_array = [0] * 5
+
+    print(output_array)
+
     middle = (length + (length % 2)) / 2
 
     index = -1
-    for index in output_array:
+    for i in output_array:
         index += 1
         print(index)
         if index < middle:
