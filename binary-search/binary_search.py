@@ -8,7 +8,7 @@ def binary_search(list, number):
 
         center = new_center
 
-        if list[center] = number:
+        if list[center] == number:
             return center
 
         elif list[center] > number:
