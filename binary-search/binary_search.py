@@ -4,27 +4,35 @@ def binary_search(list, number):
 
     max = len(list) - 1
 
+    num = int(number)
+
+    last_center = 0 
+
     while min != max:
 
-        center = new_center
+        center = new_center(min, max)  
 
-        if list[center] == number:
+        if list[center] == num:
             return center
-
-        elif list[center] > number:
+        elif last_center == center:
+            return - 1    
+        elif last_center == (center - 1):
+            return - 1
+        elif last_center == (center + 1):
+            return -1 
+        elif list[center] < num:
             new_center(center, max)
-        
+            last_center = center
         else:
             new_center(min, center)
+            last_center = center
+
 
 
 def new_center(max, min):
-    return (max - min)/2 + min
-
-
-
-
-
+    print(int((max - min)/2 + min))
+    return int((max - min)/2 + min)
 
 
 if __name__ == '__main__':
+    binary_search([11,22,33,44,55,66,77], 23)
