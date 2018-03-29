@@ -16,4 +16,3 @@ def test_insert_first_node(empty_ll):
     empty_ll.insert(2)
     assert empty_ll.head.val == 2
 
-
