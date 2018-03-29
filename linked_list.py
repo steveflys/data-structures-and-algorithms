@@ -22,14 +22,15 @@ class LinkedList:
     def __len__(self):
         return self._length
 
-    """sets the val of the node, sets the next as current head next, sets the node as head"""
+    
     def insert(self, val):
+        """sets the val of the node, sets the next as current head next, sets the node as head"""
         self.head = Node(val, self.head)
         self._size += 1
-    """
-    searches thru a list for a val
-    """    
+   
+
     def find(self, val):
+        """searches thru a list for a val """            
         current = self.head
         while current:
             if current.val == val:
@@ -39,16 +40,17 @@ class LinkedList:
 
     """ Identify a circular reference in a linked list """
     def hasloop(self):
-    counter = 1
-    current = self.head
-    while current:
-        current = current.next
-        counter += 1
-        if counter > self._length:
-            return True
-    return False       
+        counter = 1
+        current = self.head
+        while current:
+            current = current.next
+            counter += 1
+            if counter > self._length:
+                return True
+        return False       
 
 if __name__=='__main__':
 
     ll = LinkedList()
    
+
