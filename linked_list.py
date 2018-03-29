@@ -37,6 +37,17 @@ class LinkedList:
             current = current.next
         return False
 
+    """ Identify a circular reference in a linked list """
+    def hasloop(self):
+    counter = 1
+    current = self.head
+    while current:
+        current = current.next
+        counter += 1
+        if counter > self._length:
+            return True
+    return False       
+
 if __name__=='__main__':
 
     ll = LinkedList()
