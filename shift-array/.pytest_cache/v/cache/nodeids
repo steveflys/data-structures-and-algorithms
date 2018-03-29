@@ -1,0 +1,4 @@
+[
+  "test_input_shift_array.py::test_insert_shift_array_even",
+  "test_input_shift_array.py::test_insert_shift_array_odd"
+]
