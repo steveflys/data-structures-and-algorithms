@@ -35,4 +35,4 @@ def new_center(max, min):
 
 
 if __name__ == '__main__':
-    binary_search([11,22,33,44,55,66,77], 23)
+    binary_search()
