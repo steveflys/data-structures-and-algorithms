@@ -1,22 +1,20 @@
 def largest_product(list):
     
-    max = list[0][0] * list[0][1]
-
-    outer_list = [1] * len(list)
-    list_index = -1
-    
-    for i in outer_list:
-        list_index += 1
-        inner_list = [1] * len(list[list_index])
-        inner_index = -1
-        for j in inner_list:
-            inner_index += 1
-            if inner_index == len(inner_list) - 1:
-                break
-            product = list[list_index][inner_index] * list[list_index][inner_index + 1]
-            if max < product:
-                max = product  
-    return max            
+    def largest_product(list):
+        product = 0
+        index = 0
+        for x in list:
+            step = list[index[0]] * list[index[1]]
+            if step > product:
+                product = step
+            step = list[index[0]] * list[index + 1[0]]
+            if step > product:
+                product = step
+            step = list[index[1]] * list[index + 1[1]]     
+            if step > product:
+                product = step
+            index += 1
+        return product      
 
 if __name__ == '__main__':
-    largest_product([[1,2], [2,3], [3,4], [1, 5, 4, 6]])
+    largest_product
