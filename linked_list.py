@@ -38,8 +38,9 @@ class LinkedList:
             current = current.next
         return False
 
-    """ Identify a circular reference in a linked list """
+    
     def hasloop(self):
+        """ Identify a circular reference in a linked list. Set up a fast and slow linked list crawler and if there is a lopp the fast will catch the slow """
         fast = self.head
         slow = self.head
         speedometer = 1
@@ -49,7 +50,8 @@ class LinkedList:
                 return True
             if %speedometer == 0:
                 slow = current.next
-            speedometer += 1     
+            speedometer += 1
+        return False        
 
 if __name__=='__main__':
 
