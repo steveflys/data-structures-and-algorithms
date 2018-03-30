@@ -40,14 +40,16 @@ class LinkedList:
 
     """ Identify a circular reference in a linked list """
     def hasloop(self):
-        counter = 1
-        current = self.head
-        while current:
-            current = current.next
-            counter += 1
-            if counter > self._length:
+        fast = self.head
+        slow = self.head
+        speedometer = 1
+        while fast:
+            fast = current.next
+            if fast == slow:
                 return True
-        return False       
+            if %speedometer == 0:
+                slow = current.next
+            speedometer += 1     
 
 if __name__=='__main__':
 
