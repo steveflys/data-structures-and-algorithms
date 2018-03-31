@@ -14,16 +14,18 @@ class Queue:
 
     def enqueue(self, val):
         """add a value to the back of the queue, increment the size"""
+        try:
+            node = Node(val)
+        except TypeError:
+            raise TypeError('Cannot enqueue a value of none')
+
         if self._size == 0:
             node = Node(val)
             self.front = node
             self.back = node
         else:
-            try:
-                node = Node(val)
-            except TypeError:
-                raise TypeError('Cannot enqueue a value of none')
-
+            self.back_next = node._next
+ 
         self.back._next = node
         self.back = node
         self._size += 1
@@ -31,7 +33,7 @@ class Queue:
 
     def dequeue(self):
         """remove and return the value at the front of the queue"""
-        val = self.front.val
+        val = self.front
         self.front = self.front._next
         self._size -= 1
         return val
