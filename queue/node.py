@@ -10,6 +10,4 @@ class Node:
         return str(self.val)
 
     def __repr__(self):
-        return '{val}'.format(val=self.val)
-
-if __name__=='__main__':
+        return str(self.val)
