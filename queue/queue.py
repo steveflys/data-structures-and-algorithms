@@ -8,6 +8,7 @@ class Queue:
         self._size = 0
 
         if not isinstance(iterable, (list, dict, tuple)):
+            """ensure the val passed on instantiate is not an iterable a TypeError will be passed"""
             raise TypeError('Iterable must be a list, dict, or tuple')  
         for i in iterable:
             self.enqueue(i)

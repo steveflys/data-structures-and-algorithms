@@ -11,5 +11,3 @@ class Node:
 
     def __repr__(self):
         return '{val}'.format(val=self.val)
-
-if __name__=='__main__':
