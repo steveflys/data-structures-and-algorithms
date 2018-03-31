@@ -12,13 +12,15 @@ def test_insertion(empty_stack):
 
 
 def test_empty_val_on_insert(empty_stack):
-    with pytest.raises(TypeError):
-        empty_stack.push()
+    with pytest.raises(TypeError) as e:
+        empty_stack.push(None)
+    # import pdb; pdb.set_trace()
+    assert str(e.value) == 'Cannot push a value of none'
 
 
-def test_push_peek_pop_on_empty_stack(empty_stack):
+def test_push_on_empty_stack(empty_stack):
     empty_stack.push([1, 'Good Boy'])
-    assert empty_stack.peek().val == [1, 'Good Boy']
+    assert empty_stack.top.val == [1, 'Good Boy']
 
 
 def test_peek_on_small_stack(small_stack):
