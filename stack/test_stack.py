@@ -11,6 +11,17 @@ def test_insertion(empty_stack):
     assert empty_stack.push(1).val == 1
 
 
+def test_insertion_of_iterable():
+    iterable_stack = Stack([1, 2, 3, 4, 5])
+    assert iterable_stack.top.val == 5
+
+
+def test_size_on_empty_stack(empty_stack):
+    assert empty_stack._size == 0
+    empty_stack.push(1)
+    assert empty_stack._size == 1
+
+
 def test_empty_val_on_insert(empty_stack):
     with pytest.raises(TypeError) as e:
         empty_stack.push(None)
@@ -25,7 +36,7 @@ def test_push_on_empty_stack(empty_stack):
 
 def test_peek_on_small_stack(small_stack):
     assert small_stack.peek().val == 3
-  
+
 
 def test_pop_on_small_stack(small_stack):
     assert small_stack.pop().val == 3
