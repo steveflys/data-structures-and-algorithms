@@ -33,3 +33,4 @@ def test_remove_on_small_linked_list(small_linked_list):
     assert small_linked_list.remove().val == 3
     assert small_linked_list.remove().val == 2
     assert small_linked_list._size == 1
+    
