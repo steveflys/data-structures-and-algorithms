@@ -1,4 +1,3 @@
-
 class Node:
 
     def __init__(self, val, next=None):
@@ -14,3 +13,4 @@ class Node:
 
     def __repr__(self):
         return str(self.val)
+        

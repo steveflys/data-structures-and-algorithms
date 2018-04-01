@@ -15,3 +15,4 @@ def small_linked_list():
 def empty_linked_list():
     e = Linked_List()
     return e
+    
