@@ -1,17 +1,17 @@
-from .stack import Stack
+from .linked_list import Linked_List
 import pytest
 
 
 @pytest.fixture
-def small_stack():
-    s = Stack()
-    s.push(1)
-    s.push(2)
-    s.push(3)
+def small_linked_list():
+    s = Linked_List()
+    s.insert(1)
+    s.insert(2)
+    s.insert(3)
     return s
 
 
 @pytest.fixture
-def empty_stack():
-    e = Stack()
+def empty_linked_list():
+    e = Linked_List()
     return e
