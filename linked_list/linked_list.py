@@ -14,7 +14,7 @@ class Linked_List:
 
     def __repr__(self):
         """this will return head and size of linked list when called"""
-        return '<head> => {}, <_size> => {}'.format(self.head.val, self._size.val)
+        return '<head> => {}, <_size> => {}'.format(self.head.val, self._size)
 
     def __len__(self):
         """returns linked list length when called"""
