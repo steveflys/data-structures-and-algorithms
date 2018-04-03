@@ -21,8 +21,12 @@ def test_enqueue_on_small_stack_queue(small_stack_queue):
     assert small_stack_queue.stack_back.top.val == 1
 
 
-def test_dequeue_on_small_stack_queue(small_stack_queue):
+def test_dequeue_on_small_stack_queue(empty_stack_queue):
     """test we can remove a node from the front of a stack_queue, decrement the ._size and return the value"""
-    assert small_stack_queue.dequeue().val == 1
-    assert small_stack_queue.dequeue().val == 2
-    assert small_stack_queue._size == 1
+    empty_stack_queue.enqueue(1)
+    empty_stack_queue.enqueue(2)
+    empty_stack_queue.enqueue(3)
+    assert empty_stack_queue.dequeue().val == 1
+    # assert small_stack_queue.dequeue().val == 1
+    # assert small_stack_queue.dequeue().val == 2
+    assert empty_stack_queue._size == 2
