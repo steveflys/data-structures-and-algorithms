@@ -21,7 +21,6 @@ class Queue:
             raise TypeError('Cannot enqueue a value of none')
 
         if self._size == 0:
-            node = Node(val)
             self.front = node
             self.back = node
         else:
