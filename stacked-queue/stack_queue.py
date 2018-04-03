@@ -3,32 +3,33 @@ from .stack import Stack
 
 
 class Stack_Queue:
-    def __init__(self, iterable=[]):
-        self.top = None
+    def __init__(self):
+        self.stack_front = Stack()
+        self.stack_front = Stack()
         self._size = 0
 
-        if not isinstance(iterable, (list, dict, tuple)):
-            """this checks if the iterable is a true iterable and inserts each value as a new node"""
-            raise TypeError('Iterable must be a list, dict, or tuple')   
-        for i in iterable:
-            self.push(i)
-
-    def push(self, val):
-        """This will add a node the top of a stack"""
+    def enqueue(self, val):
+        """This will add a node the back of the queue and increment the ._size"""
         try:
             node = Node(val)
         except TypeError:
             raise TypeError('Cannot push a value of none')
 
-        node._next = self.top
-        self.top = node
+        node._next = self.stack_back.top
+        self.stack_back.top = node
         self._size += 1
 
         return self.top
 
-    def pop(self):
-        """remove the node at the top of the stack, decrement the ._size and return the value"""
-        val = self.top
-        self.top = self.top._next
-        self._size -= 1
+    def dequeue(self):
+        """remove the node at the front of the queue, decrement the ._size and return the value"""
+
+        while stack_back.next:
+            stack_front.push(stack_back.pop())
+
+        val = stack_back.pop
+
+        while stack_front.next:
+            stack_back.push(stack_front.pop())
+
         return val
