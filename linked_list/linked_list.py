@@ -12,6 +12,14 @@ class Linked_List:
         for i in iterable:
             self.insert(i)
 
+    def __repr__(self):
+        """this will return head and size of linked list when called"""
+        return '<head> => {}, <_size> => {}'.format(self.head.val, self._size.val)
+
+    def __len__(self):
+        """returns linked list length when called"""
+        return self._size
+
     def insert(self, val):
         """This will add a node the front of the list"""
         try:
@@ -31,3 +39,4 @@ class Linked_List:
         self.head = self.head._next
         self._size -= 1
         return val
+        
