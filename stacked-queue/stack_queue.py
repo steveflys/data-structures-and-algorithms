@@ -1,5 +1,5 @@
-from .node import Node
-from .stack import Stack
+from node import Node
+from stack import Stack
 
 
 class Stack_Queue:
@@ -24,15 +24,15 @@ class Stack_Queue:
     def dequeue(self):
         """remove the node at the front of the queue, decrement the ._size and return the value"""
 
-        while stack_back.next:
-            stack_front.push(stack_back.pop())
+        while self.stack_back.top._next:
+            self.stack_front.push(self.stack_back.pop())
 
-        val = stack_back.pop
+        val = self.stack_back.pop
 
-        while stack_front.next:
-            stack_back.push(stack_front.pop())
+        while self.stack_front.top._next:
+            self.stack_back.push(self.stack_front.pop())
 
-        stack_back.push(stack_front.pop())
+        self.stack_back.push(self.stack_front.pop())
 
         self._size -= 1
 

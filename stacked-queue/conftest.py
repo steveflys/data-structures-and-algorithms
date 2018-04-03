@@ -1,4 +1,4 @@
-from .stack_queue import Stack_Queue
+from stack_queue import Stack_Queue
 import pytest
 
 
