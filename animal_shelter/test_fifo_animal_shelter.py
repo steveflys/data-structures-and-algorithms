@@ -1,4 +1,4 @@
-from fifo_animal_shelter import AnimalShelter
+from .fifo_animal_shelter import AnimalShelter
 import pytest
 
 
@@ -24,5 +24,5 @@ def test_enqueue_on_small_AnimalShelter(small_animalShelter):
 def test_dog_dequeue_on_cat_AnimalShelter(cat_animalShelter):
     """test we can remove a node from the front of a AnimalShelter, decrement the ._size and return the value"""
     cat_animalShelter.dequeue('dog')
-    assert empty_animalShelter.dequeue().val == 'Sorry we do not have any dog\'s at this time'
-    assert empty_animalShelter._size == 3
+    assert cat_animalShelter.dequeue('dog') == 'Sorry we do not have any of those at this time'
+    assert cat_animalShelter._size == 3

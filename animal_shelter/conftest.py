@@ -1,4 +1,5 @@
-from fifo_animal_shelter import AnimalShelter
+from .fifo_animal_shelter import AnimalShelter
+import pytest
 
 
 @pytest.fixture
@@ -11,10 +12,10 @@ def small_animalShelter():
 
 @pytest.fixture
 def cat_animalShelter():
-    s = AnimalShelter()
-    s.enqueue('cat')
-    s.enqueue('cat')
-    s.enqueue('cat')
+    c = AnimalShelter()
+    c.enqueue('cat')
+    c.enqueue('cat')
+    c.enqueue('cat')
     return c
 
 

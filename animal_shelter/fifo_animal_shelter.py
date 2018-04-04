@@ -1,5 +1,5 @@
-from node import Node
-from stack import Stack
+from .node import Node
+from .stack import Stack
 
 
 class AnimalShelter:
@@ -24,8 +24,8 @@ class AnimalShelter:
     def dequeue(self, val):
         """remove the node that has the requested animal nearest to the front of the queue, decrement the ._size and return the value"""
 
-        while self.stack_front.top._next:
-            self.stack_back.push(self.stack_front.pop())
+        while self.stack_back.top._next:
+            self.stack_front.push(self.stack_back.pop())
 
         self.stack_back.push(self.stack_front.pop())
 
@@ -53,6 +53,7 @@ class AnimalShelter:
             self.stack_back.push(self.stack_front.pop())
         if pet is False:
             print(f'Sorry we do not have any {val}\'s at this time')
+            return 'Sorry we do not have any of those at this time'
         else:
             self._size -= 1
             return pet
