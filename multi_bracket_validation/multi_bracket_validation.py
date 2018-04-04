@@ -3,6 +3,7 @@ import re
 
 
 def switch(char):
+    """this will return the closing bracket for each braket type"""
     if re.match(r"[(]", char):
         return ')'
     if re.match(r"[[]", char):
@@ -12,17 +13,15 @@ def switch(char):
 
 
 def multi_bracket_validation(input):
-
+    """this will push any opening brackets into a stack, poping off the stack for every closing bracket, and verifing it matches tnhe last opening bracket pushed""" 
     stack = Stack()
     new = ''
     top = ''
     for char in input:
         if re.match(r"[([{]", char):
             new = switch(char)
-            # import pdb; pdb.set_trace()
             stack.push(new)
         elif re.match(r"[)\]}]", char):
-            # import pdb; pdb.set_trace()
             top = stack.pop()
             if str(top) != char:
                 return False
