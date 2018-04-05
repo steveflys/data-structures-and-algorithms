@@ -23,9 +23,7 @@ class Stack_Queue:
 
     def dequeue(self):
         """remove the node at the front of the queue, decrement the ._size and return the value"""
-
-        # import pdb; pdb.set_trace()
-        
+  
         while self.stack_back.top._next:
             self.stack_front.push(self.stack_back.pop())
 
