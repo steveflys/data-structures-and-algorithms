@@ -1,4 +1,4 @@
-from .fifo_animal_shelter import AnimalShelter
+from .fifo_animal_shelter import Dog, Cat, AnimalShelter
 import pytest
 
 

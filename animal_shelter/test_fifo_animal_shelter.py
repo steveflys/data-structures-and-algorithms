@@ -1,11 +1,5 @@
-from .fifo_animal_shelter import AnimalShelter
+from .fifo_animal_shelter import Dog, Cat, AnimalShelter
 import pytest
-
-
-def test_size(empty_animalShelter):
-    """test that we can push a val into an empty AnimalShelter and increment the ._size of the AnimalShelter"""
-    empty_animalShelter.enqueue('cat').val == 'cat'
-    assert empty_animalShelter._size == 1
 
 
 def test_empty_val_on_enqueue(empty_animalShelter):
@@ -18,11 +12,16 @@ def test_empty_val_on_enqueue(empty_animalShelter):
 def test_enqueue_on_small_AnimalShelter(small_animalShelter):
     """test we can push a value into the back of the AnimalShelter"""
     small_animalShelter.enqueue('cat')
-    assert small_animalShelter.stack_back.top.val == 'cat'
+    assert isinstance(small_animalShelter.cat_shelter.back.val, Cat)
+    assert isinstance(small_animalShelter.long_queue.back.val, str)
 
+
+def test_dog_dequeue_on_small_AnimalShelter(small_animalShelter):
+    """test we can remove the proper animal from an AnimalShelter, decrement the ._size and return the value"""
+    assert isinstance(small_animalShelter.dog_shelter.back.val, Dog)
+    assert isinstance(small_animalShelter.long_queue.back.val, str)
 
 def test_dog_dequeue_on_cat_AnimalShelter(cat_animalShelter):
-    """test we can remove a node from the front of a AnimalShelter, decrement the ._size and return the value"""
-    cat_animalShelter.dequeue('dog')
+    """test we return the proper message if the animal shelter does not contain any matching animals"""
     assert cat_animalShelter.dequeue('dog') == 'Sorry we do not have any of those at this time'
-    assert cat_animalShelter._size == 3
+
