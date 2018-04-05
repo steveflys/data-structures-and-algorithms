@@ -13,13 +13,13 @@ class Queue:
         for i in iterable:
             self.enqueue(i)
 
+    def __len__(self):
+        return self._size
+
     def enqueue(self, val):
         """add a value to the back of the queue, increment the size"""
-        try:
-            node = Node(val)
-        except TypeError:
-            raise TypeError('Cannot enqueue a value of none')
-
+        node = Node(val)
+        
         if self._size == 0:
             self.front = node
             self.back = node
