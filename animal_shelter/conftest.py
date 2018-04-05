@@ -15,7 +15,7 @@ def cat_animalShelter():
     c = AnimalShelter()
     c.enqueue('cat')
     c.enqueue('cat')
-    c.enqueue('cat')
+    c.enqueue('Cat()')
     return c
 
 
