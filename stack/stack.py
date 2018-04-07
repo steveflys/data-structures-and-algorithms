@@ -8,7 +8,7 @@ class Stack:
 
         if not isinstance(iterable, (list, dict, tuple)):
             """this checks if the iterable is a true iterable and inserts each value as a new node"""
-            raise TypeError('Iterable must be a list, dict, or tuple')   
+            raise TypeError('Iterable must be a list, dict, or tuple')
         for i in iterable:
             self.push(i)
 
