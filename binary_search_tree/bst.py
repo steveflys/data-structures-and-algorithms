@@ -10,93 +10,94 @@ class Node:
             return('Node val: {}, Right: {}, Left: {}'.format(self.val, self.right.val, self.left.val))
 
         def __str__(self):
-            return self.val
+            return str(self.val)
 
 
 class BST:
     def __init__(self, iterable=[]):
         self.root = None
 
-        def __repr__(self):
-            return '<BST Root {}>'.format(self.root.val)
-
-        def __str__(self):
-            return self.root.val
-
         if not isinstance(iterable, (list, dict, tuple)):
             """this checks if the iterable is a true iterable and inserts each value as a new node"""
-            raise TypeError('Iterable must be a list, dict, or tuple')   
+            raise TypeError('Iterable must be a list, dict, or tuple')
         for i in iterable:
             self.insert(i)
 
-        def insert(self, val):
-            node = Node(val)
-            current = self.root
+    def __repr__(self):
+        return 'BST root {}'.format(self.root.val)
 
-            if self.root is None:
-                self.root = node
-                return node
+    def __str__(self):
+        return str(self.root.val)
 
-            while current:
-                if val >= current.val:
-                    if current.right is not None
-                        current = current.right
-                    else:
-                        current.right = node
-                        break
+    def insert(self, val):
+        """inserts new nodes into the correct side of the tree""" 
+        node = Node(val)
+        current = self.root
 
-                if val < current.val:
-                    if current.left is not None
-                        current = current.left
-                    else:
-                        current.left = node
-                        break
+        if self.root is None:
+            self.root = node
+            return node
 
-            return leaf       
+        while current:
+            if val >= current.val:
+                if current.right is not None:
+                    current = current.right
+                else:
+                    current.right = node
+                    break
 
-        def in_order(self, operation):
-            def _walk(node=None):
-                if node is None:
-                    return
+            if val < current.val:
+                if current.left is not None:
+                    current = current.left
+                else:
+                    current.left = node
+                    break
 
-                if node.left is not None:
-                    _walk(node.left)
+        return node
 
-                operation(node)
+    def in_order(self, operation):
+        """does an operation on the nodes in the tree in a sorted order"""
+        def _walk(node=None):
+            if node is None:
+                return
 
-                if node.right is not None:
-                    _walk(node.right)
+            if node.left is not None:
+                _walk(node.left)
 
-            _walk(self.root)
+            operation(node)
 
-        def pre_order(self, operation):
-            def _walk(node=None):
-                if node is None:
-                    return
+            if node.right is not None:
+                _walk(node.right)
 
-                operation(node)
+        _walk(self.root)
 
-                if node.left is not None:
-                    _walk(node.left)
+    def pre_order(self, operation):
+        """does an operation on the nodes in the tree when passing the left side by traversing the left tree, then right tree"""
+        def _walk(node=None):
+            if node is None:
+                return
 
-                if node.right is not None:
-                    _walk(node_right)
+            operation(node)
 
-            _walk(self.root)
+            if node.left is not None:
+                _walk(node.left)
 
-        def post_order(self, operation):
-            def _walk(node=None):
-                if node is None:
-                    return
+            if node.right is not None:
+                _walk(node.right)
 
-                if node.left is not None:
-                    _walk(node.left)
+        _walk(self.root)
 
-                if node.right is not None:
-                    _walk(node_right)
+    def post_order(self, operation):
+        def _walk(node=None):
+            if node is None:
+                return
 
-                operation(node)
+            if node.left is not None:
+                _walk(node.left)
 
-            _walk(self.root)
+            if node.right is not None:
+                _walk(node.right)
 
+            operation(node)
 
+        _walk(self.root)
