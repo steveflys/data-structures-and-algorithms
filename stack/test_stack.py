@@ -29,7 +29,7 @@ def test_size_on_empty_stack(empty_stack):
 
 
 def test_empty_val_on_insert(empty_stack):
-    """test if we try to push a value of None a type erreor will be thrown and rthe correct message will be displayed"""
+    """test if we try to push a value of None a type error will be thrown and the correct message will be displayed"""
     with pytest.raises(TypeError) as e:
         empty_stack.push(None)
     assert str(e.value) == 'Cannot push a value of none'
