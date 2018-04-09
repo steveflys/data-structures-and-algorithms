@@ -35,22 +35,21 @@ class Linked_List:
 
     def append(self, value):
         """this will add a new node to the end of the list"""
-        try:
-            node = Node(value)
-        except TypeError:
-            raise TypeError('Cannot insert a value of none')
+    
+        node = Node(value)
 
         current = self.head
-
-        while next:
+        # import pdb; pdb.set_trace()
+        while current._next:
             current = current._next
-        current.next = node
+        current._next = node
+        self._size += 1
         return node
 
-    def insertBefore(self, new_value, value):
+    def insert_before(self, new_value, value):
         """add a new node with the new_value imediately before the first node with the value"""
         try:
-            node = Node(value)
+            node = Node(new_value)
         except TypeError:
             raise TypeError('Cannot insert a value of none')
 
@@ -62,12 +61,13 @@ class Linked_List:
         node._next = current
         current = new_next
         current._next = node
+        self._size += 1
         return node
 
     def insert_after(self, new_value, value):
         """add a new node with the new_value imediately after the first node with the value"""
         try:
-            node = Node(value)
+            node = Node(new_value)
         except TypeError:
             raise TypeError('Cannot insert a value of none')
 
@@ -77,6 +77,7 @@ class Linked_List:
             current = current._next
         node._next = current._next
         current._next = node
+        self._size += 1
         return node
 
     def remove(self):
