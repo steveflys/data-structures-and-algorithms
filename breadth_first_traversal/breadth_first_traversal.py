@@ -2,8 +2,8 @@ from .queue import Queue
 from .bst import BST
 
 
-def breadth_first_traversal(bst, operation):
-
+def breadth_first_traversal(bst):
+    output = []
     go = Queue()
     current = bst.root
     if current.left:
@@ -11,9 +11,10 @@ def breadth_first_traversal(bst, operation):
     if current.right:
         go.enqueue(current.right)
     x = current.val
-    operation()
+    output.append(x)
 
     while go.front:
+        # import pdb; pdb.set_trace()
         current = go.front
         go.dequeue()
         if current.val.left:
@@ -21,7 +22,6 @@ def breadth_first_traversal(bst, operation):
         if current.val.right:
             go.enqueue(current.val.right)
         x = current.val.val
-        # import pdb; pdb.set_trace()
-        operation()
+        output.append(x)
 
-    operation
+    return output
