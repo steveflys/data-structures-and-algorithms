@@ -5,22 +5,23 @@ from .bst import BST
 def breadth_first_traversal(bst, operation):
 
     go = Queue()
-    node = bst.root
-    import pdb; pdb.set_trace()
-    if node.left.val:
-        go.enqueue(node.left.val)
-    if node.right.val:
-        go.enqueue(node.right.val)
-    operation
+    current = bst.root
+    if current.left:
+        go.enqueue(current.left)
+    if current.right:
+        go.enqueue(current.right)
+    x = current.val
+    operation()
 
-    while go:
-        node.next = go.front.val
-        node = node.next
-        go.dequeue
-        if node.left.val:
-            go.enqueue(node.left.val)
-        if node.right.val:
-            go.enqueue(node.right.val)
-        operation
+    while go.front:
+        current = go.front
+        go.dequeue()
+        if current.val.left:
+            go.enqueue(current.val.left)
+        if current.val.right:
+            go.enqueue(current.val.right)
+        x = current.val.val
+        # import pdb; pdb.set_trace()
+        operation()
 
     operation
