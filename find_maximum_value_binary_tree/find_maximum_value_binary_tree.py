@@ -1,6 +1,6 @@
 
-def find_maximum_value_binary_tree(bst):
-    """traverses all on the nodes in the tree and compares the values to find the biggest value"""
+def find_maximum_value(bst):
+    """traverses all on the nodes in the tree and compares the values to find the maximum value"""
 
     x = 0
 
