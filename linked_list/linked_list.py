@@ -40,6 +40,53 @@ class Linked_List:
         self._size -= 1
         return val
 
+    def append(self, value):
+        """this will add a new node to the end of the list"""
+    
+        node = Node(value)
+
+        current = self.head
+        # import pdb; pdb.set_trace()
+        while current._next:
+            current = current._next
+        current._next = node
+        self._size += 1
+        return node
+
+    def insert_before(self, new_value, value):
+        """add a new node with the new_value imediately before the first node with the value"""
+        try:
+            node = Node(new_value)
+        except TypeError:
+            raise TypeError('Cannot insert a value of none')
+
+        current = self.head
+
+        while current.val != value:
+            new_next = current
+            current = current._next
+        node._next = current
+        current = new_next
+        current._next = node
+        self._size += 1
+        return node
+
+    def insert_after(self, new_value, value):
+        """add a new node with the new_value imediately after the first node with the value"""
+        try:
+            node = Node(new_value)
+        except TypeError:
+            raise TypeError('Cannot insert a value of none')
+
+        current = self.head
+
+        while current.val != value:
+            current = current._next
+        node._next = current._next
+        current._next = node
+        self._size += 1
+        return node
+
     def ll_kth_from_end(self, k):
         """ find node that is (k) from the end """
         if k < 0 or self._size - k < 0:
@@ -53,3 +100,4 @@ class Linked_List:
             counter += 1
             node = node._next
             return node.val
+            
