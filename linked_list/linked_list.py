@@ -39,3 +39,17 @@ class Linked_List:
         self.head = self.head._next
         self._size -= 1
         return val
+
+    def ll_kth_from_end(self, k):
+        """ find node that is (k) from the end """
+        if k < 0 or self._size - k < 0:
+            return False
+        x = self._size - (k-1)
+        node = self.head
+        counter = 0
+        while node:
+            if counter == x:
+                return node
+            counter += 1
+            node = node._next
+            return node.val

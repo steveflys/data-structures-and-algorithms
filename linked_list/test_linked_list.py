@@ -34,4 +34,15 @@ def test_remove_on_small_linked_list(small_linked_list):
     assert small_linked_list.remove().val == 3
     assert small_linked_list.remove().val == 2
     assert len(small_linked_list) == 1
-    
+
+
+def test_ll_kth_from_end_on_empty_ll(empty_linked_list):
+    assert empty_linked_list.ll_kth_from_end(2) is False
+
+
+def test_ll_kth_from_end_with_k_too_big(small_linked_list):
+    assert small_linked_list.ll_kth_from_end(4) is False
+
+
+def test_ll_kth_from_end_on_small_ll(small_linked_list):
+    assert small_linked_list.ll_kth_from_end(2) == 2
