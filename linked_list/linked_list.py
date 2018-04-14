@@ -39,4 +39,3 @@ class Linked_List:
         self.head = self.head._next
         self._size -= 1
         return val
-        
