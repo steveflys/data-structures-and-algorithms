@@ -1,4 +1,5 @@
 from .linked_list import Linked_List
+from .ll_merge import ll.merge
 import pytest
 
 
@@ -33,3 +34,28 @@ def test_remove_on_small_linked_list(small_linked_list):
     assert small_linked_list.remove().val == 3
     assert small_linked_list.remove().val == 2
     assert small_linked_list._size == 1
+
+
+def test_merge_ll_with_an_empty_list(small_linked_list, empty_linked_list):
+    merge_ll(small_linked_list, empty_linked_list) == merged
+        answer = []
+        for n in merge:
+            answer.append(n.val)
+    assert answer == [3, 2, 1]
+
+
+def test_merge_ll_with_same_size_lists(small_linked_list, small_linked_list):
+    merge_ll(small_linked_list, small_linked_list) == merged
+        answer = []
+        for n in merge:
+            answer.append(n.val)
+    assert answer == [3, 3, 2, 2, 1, 1]
+
+
+def test_merge_ll_with_an_empty_list(small_linked_list, large_linked_list):
+    merge_ll(small_linked_list, large_linked_list) == merged
+        answer = []
+        for n in merge:
+            answer.append(n.val)
+    assert answer == [3, 7, 2, 6, 1, 5, 4, 3, 2, 1]
+

@@ -15,3 +15,9 @@ def small_linked_list():
 def empty_linked_list():
     e = Linked_List()
     return e
+
+
+@pytest.fixture
+def large_linked_list([1, 2, 3, 4, 5, 6, 7]):
+    l = Linked_List()
+    return l
