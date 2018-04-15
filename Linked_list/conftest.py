@@ -18,6 +18,6 @@ def empty_linked_list():
 
 
 @pytest.fixture
-def large_linked_list([1, 2, 3, 4, 5, 6, 7]):
-    l = Linked_List()
+def large_linked_list():
+    l = Linked_List([1, 2, 3, 4, 5, 6, 7])
     return l
