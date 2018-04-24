@@ -23,10 +23,10 @@ class KTree:
     def __init__(self):
         self.root = None
 
-    def __str__(self):
-        return str(self.root.val)
-
     def __repr__(self):
+        return 'KTree root {}'.format(self.root.val)
+
+    def __str__(self):
         return str(self.root.val)
 
     def pre_order(self, opertion):
@@ -72,7 +72,7 @@ class KTree:
             self.root.children.append(node)
         elif parent is None:
             self.root.children.append(node)
-    
+
         current = self.root
 
         qu = Queue()
@@ -90,7 +90,6 @@ class KTree:
                 for child in current.children:
                     qu.enqueue(child)
             top = top.next
-        
 
     def breadth_first_traversal(tree, operation):
         """define function to search nodes in the bredth first order"""
