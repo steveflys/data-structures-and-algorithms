@@ -4,8 +4,8 @@ from .k_tree import KTree
 
 def test_insert_with_no_parent(small_k_tree):
     """test insert with no parent will make the node a child of the root"""
-    small_k_tree.insert(4, 10)
-    assert small_k_tree.root.children = [2, 3, 4, 10]
+    small_k_tree.insert(None, 10)
+    assert small_k_tree.root.children == [2, 3, 4, 10]
 
 
 def test_post_order(small_k_tree):

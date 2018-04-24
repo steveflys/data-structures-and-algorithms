@@ -4,6 +4,7 @@ from .k_tree import KTree
 
 @pytest.fixture
 def small_k_tree():
+    # import pdb; pdb.set_trace()
     k = KTree()
     k.insert(8, 1)
     k.insert(1, 2)
