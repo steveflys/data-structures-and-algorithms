@@ -14,7 +14,7 @@ class Node:
 
 
 class BST:
-    def __init__(self, iterable=[]):
+    def __init__(self):
         self.root = None
 
         if not isinstance(iterable, (list, dict, tuple)):
