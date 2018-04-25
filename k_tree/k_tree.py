@@ -29,27 +29,28 @@ class KTree:
     def __str__(self):
         return str(self.root.val)
 
-    def pre_order(self, opertion):
+    def pre_order(self, operation):
         def _walk(node=None):
             if node is None:
                 return
 
-            operation(node)
-
-            for child in node.children:
-                _walk(child)
+            operation()
+            if len(node.children):
+                for child in node.children:
+                    _walk(child)
 
         _walk(self.root)
 
-    def post_order(self, opertion):
+    def post_order(self, operation):
         def _walk(node=None):
             if node is None:
                 return
 
-            for child in node.children:
-                _walk(child)
+            if len(node.children):
+                for child in node.children:
+                    _walk(child)
 
-            operation(node)
+            operation()
 
         _walk(self.root)
 
@@ -61,35 +62,26 @@ class KTree:
             node = queue.pop(0)
             for child in node.children:
                 queue.append(child)
-            operation(node)
+            operation()
 
     def insert(self, val, parent=None):
         """inserts new nodes into the tree as a child of the correct node"""
+        # import pdb; pdb.set_trace()
         node = Node(val)
         if self.root is None:
             self.root = node
         elif self.root.val == parent:
             self.root.children.append(node)
         elif parent is None:
+            # import pdb; pdb.set_trace()
             self.root.children.append(node)
-
-        current = self.root
-
-        qu = Queue()
-        if len(current.children) > 0:
-            for child in current.children:
-                qu.enqueue(child)
-        top = qu.front
-        while top:
-            import pdb; pdb.set_trace()
-            current = qu.dequeue.val
-            if current.val == parent:
-                current.children.append(node)
-                break
-            if len(current.children) > 0:
-                for child in current.children:
-                    qu.enqueue(child)
-            top = top.next
+        else:
+            def find():
+                if node.val == parent:
+                    node.children.append(node)
+                    return node
+            self.breadth_first(find)
+           
 
     def breadth_first_traversal(tree, operation):
         """define function to search nodes in the bredth first order"""
