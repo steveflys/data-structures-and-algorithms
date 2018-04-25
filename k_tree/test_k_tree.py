@@ -21,22 +21,23 @@ def test_insert_with_no_parent():
 def test_post_order(small_k_tree):
     """this tests the node values will come out in the proper post_order sequence"""
     answer = []
+    def operation(node):
+        answer.append(node.val)
+    small_k_tree.post_order(operation)
 
-    small_k_tree.post_order(answer.append)
-
-    assert answer == [1, 2, 5, 6, 7, 3, 8, 9, 4]
+    assert answer == [5, 6, 7, 2, 8, 3, 4, 1]
 
 
-# def test_pre_order(small_k_tree):
-#     """this tests the node values will come out in the proper pre_order sequence"""
-#     answer = []
+def test_pre_order(small_k_tree):
+    """this tests the node values will come out in the proper pre_order sequence"""
+    answer = []
 
-#     def do_this(node):
-#         answer.append(node.val)
+    def operation(node):
+        answer.append(node.val)
 
-#     small_k_tree.pre_order(do_this)
+    small_k_tree.pre_order(operation)
 
-#     assert answer == [5, 8, 7, 2, 8, 9, 3, 4, 1]
+    assert answer == [1, 2, 5, 6, 7, 3, 8, 4]
 
 
 # def test_breadth_first(small_k_tree):
