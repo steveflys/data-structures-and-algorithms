@@ -1,8 +1,5 @@
-from .queue import Queue
-
-
 class Node:
-
+    """node class for a k-ary tree"""
     def __init__(self, val):
 
         if val is None:
@@ -20,7 +17,7 @@ class Node:
 
 
 class KTree:
-
+    """class for a k-ary tree"""
     def __init__(self):
         self.root = None
 
@@ -59,6 +56,7 @@ class KTree:
         _walk(self.root)
 
     def breadth_first(self, operation):
+        """breadth-first traversal of a k-ary tree"""
         def _walk(nodes):
             qu = []
             for node in nodes:
