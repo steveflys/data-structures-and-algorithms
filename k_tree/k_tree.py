@@ -1,8 +1,5 @@
-from .queue import Queue
-
-
 class Node:
-
+    """node class for a k-ary tree"""
     def __init__(self, val):
 
         if val is None:
@@ -11,15 +8,16 @@ class Node:
         self.val = val
         self.children = []
 
+
     def __str__(self):
         return str(self.val)
 
     def __repr__(self):
-        return str(self.val)
+        return 'node is {}'.format(str(self.val))
 
 
 class KTree:
-
+    """class for a k-ary tree"""
     def __init__(self):
         self.root = None
 
@@ -29,82 +27,82 @@ class KTree:
     def __str__(self):
         return str(self.root.val)
 
-    def pre_order(self, opertion):
+    def pre_order(self, operation):
+        """pre-order traversal of a k-ary tree"""
         def _walk(node=None):
             if node is None:
                 return
 
             operation(node)
 
-            for child in node.children:
-                _walk(child)
+            if len(node.children):
+                for child in node.children:
+                    _walk(child)
 
         _walk(self.root)
 
-    def post_order(self, opertion):
+    def post_order(self, operation):
+        """post-order traversal of a k-ary tree"""
         def _walk(node=None):
             if node is None:
                 return
 
-            for child in node.children:
-                _walk(child)
+            if len(node.children):
+                for child in node.children:
+                    _walk(child)
 
             operation(node)
 
         _walk(self.root)
 
     def breadth_first(self, operation):
-        if self.root is None:
-            return False
-        queue = [self.root]
-        while len(queue):
-            node = queue.pop(0)
-            for child in node.children:
-                queue.append(child)
-            operation(node)
+        """breadth-first traversal of a k-ary tree"""
+        def _walk(nodes):
+            qu = []
+            for node in nodes:
+                operation(node)
+                for child in node.children:
+                    qu.append(child)
+
+            if len(qu):
+                _walk(qu)
+
+        if self.root:
+            _walk([self.root])
 
     def insert(self, val, parent=None):
-        """inserts new nodes into the tree as a child of the correct node"""
+        """inserts new nodes into the tree as a child of the first parent node"""
+        # import pdb; pdb.set_trace()
         node = Node(val)
         if self.root is None:
             self.root = node
         elif self.root.val == parent:
             self.root.children.append(node)
         elif parent is None:
+            # import pdb; pdb.set_trace()
             self.root.children.append(node)
+        else:
+            def reunion(current):
+                if current.val == parent:
+                    current.children.append(node)
+                    return node
 
-        current = self.root
+            self.breadth_first(reunion)       
 
-        qu = Queue()
-        if len(current.children) > 0:
-            for child in current.children:
-                qu.enqueue(child)
-        top = qu.front
-        while top:
-            import pdb; pdb.set_trace()
-            current = qu.dequeue.val
-            if current.val == parent:
-                current.children.append(node)
-                break
-            if len(current.children) > 0:
-                for child in current.children:
-                    qu.enqueue(child)
-            top = top.next
-
-    def breadth_first_traversal(tree, operation):
-        """define function to search nodes in the bredth first order"""
-        if tree.root is None:
-            return False
-        operation()
-        qu = Queue()
-        if len(self.root.children) > 0:
-            for child in self.root.children:
-                qu.enqueue(child)
-        top = qu.front
-        while top:
-            node = qu.dequeue
-            operation()
-            if len(node.children) > 0:
-                for child in node.children:
-                    qu.enqueue(child)
-            top = top.next
+    # def breadth_first_traversal(self, operation):
+    #     """define function to search nodes in the bredth first order"""
+    #     if tree.root is None:
+    #         return False
+    #     operation()
+    #     qu = Queue()
+    #     if len(self.root.children) > 0:
+    #         for child in self.root.children:
+    #             qu.enqueue(child)
+    #     top = qu.front
+    #     while top:
+    #         node = qu.dequeue
+    #         operation()
+    #         if len(node.children) > 0:
+    #             for child in node.children:
+    #                 qu.enqueue(child)
+    #         top = top.next
