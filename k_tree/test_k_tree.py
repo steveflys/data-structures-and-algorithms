@@ -40,13 +40,13 @@ def test_pre_order(small_k_tree):
     assert answer == [1, 2, 5, 6, 7, 3, 8, 4]
 
 
-# def test_breadth_first(small_k_tree):
-#     """this tests the node values will come out in the proper breadth_first sequence"""
-#     answer = []
+def test_breadth_first(small_k_tree):
+    """this tests the node values will come out in the proper breadth_first sequence"""
+    answer = []
 
-#     def do_this(node):
-#         answer.append(node.val)
+    def do_this(node):
+        answer.append(node.val)
 
-#     small_k_tree.pre_order(do_this)
+    small_k_tree.pre_order(do_this)
 
-#     assert answer == [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assert answer == [1, 2, 3, 4, 5, 6, 7, 8, 9]
