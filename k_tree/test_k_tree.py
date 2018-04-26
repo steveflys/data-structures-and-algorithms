@@ -3,6 +3,7 @@
 import pytest
 from .k_tree import KTree
 from .print_level_order import print_level_order
+from .find_matches import find_matches
 
 
 def test_insert_first_node():
@@ -66,3 +67,9 @@ def test_print_level_order_on_empty_tree():
     tree = KTree()
     tree.insert(10)
     assert print_level_order(tree) == '10\n'
+
+
+def test_find_matches_with_one_match(small_k_tree):
+    """Ensure the find matches will find the matches."""
+    answer = find_matches(small_k_tree, 6)
+    assert answer.root.val == 6
