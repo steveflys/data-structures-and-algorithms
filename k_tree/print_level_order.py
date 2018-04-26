@@ -7,49 +7,16 @@ def print_level_order(tree):
     last_child = tree.root
     stringed = ''
 
-    def find_row();
+    def find_row(node):
+        nonlocal stringed, last_child
         stringed += str(node.val)
-        if node = last_child:
-            node.children[-1] = last_child
-            stringed += '\n'
+        if node == last_child:
+            if not node.children:
+                stringed += '\n'
+            else:
+                last_child = node.children[-1]
+                stringed += '\n'
 
     tree.breadth_first(find_row)
 
     return stringed
-
-
-
-
-
-
-
-
-
-
-
-# def print_level_order(self):
-#         count = 1
-#         newcount = 0
-#         stringthing = ''
-
-#         def _walk(nodes):
-#             nonlocal count, newcount, stringthing
-#             new = []
-#             if count > 0:
-#                 for node in nodes:
-#                     stringthing += str(node.val)
-#                     count -= 1
-#                     for child in node.children:
-#                         newcount += 1
-#                         new.append(child)
-#             stringthing += '\n'
-#             count = newcount
-#             newcount = 0
-
-#             if len(new):
-#                 _walk(new)
-
-#         if self.root:
-#             _walk([self.root])
-
-#         return stringthing
