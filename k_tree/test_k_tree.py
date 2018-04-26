@@ -21,12 +21,6 @@ def test_insert_with_no_parent():
     assert next_k_tree.root.children[0].val == 10
 
 
-def test_insert_with_missing_parent(small_k_tree):
-    """Demonstrate an insert with the parent not in the tree will insert the node in the root."""
-    small_k_tree.insert(9, 9)
-    assert small_k_tree.root.children[-1] == 9
-
-
 def test_post_order(small_k_tree):
     """Verify the node values will come out in the proper post_order sequence."""
     answer = []
