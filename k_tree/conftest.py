@@ -1,10 +1,12 @@
+"""This sets up a the test fuxtures for k-ary trees."""
+
 import pytest
 from .k_tree import KTree
 
 
 @pytest.fixture
 def small_k_tree():
-    # import pdb; pdb.set_trace()
+    """Make a k-ary tree for pytest."""
     k = KTree()
     k.insert(1)
     k.insert(2, 1)
