@@ -18,6 +18,7 @@ def small_k_tree():
     k.insert(8, 3)
     return k
 
+
 @pytest.fixture
 def small_k_tree():
     """Make a second k-ary tree for pytest."""
