@@ -70,7 +70,7 @@ class HashLinkedList:
 class HashTable:
     """Create a Hash Table class with linked lists as buckets."""
 
-    def __init__(self, max_size):
+    def __init__(self, max_size=1024):
         """Identify this as a constructor for the Hash Table class."""
         self.max_size = max_size
         self.buckets = [None] * self.max_size
