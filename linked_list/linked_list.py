@@ -34,7 +34,7 @@ class Linked_List:
         return self.head
 
     def remove(self):
-        """remove the node at the head of the linked_list, decrement the ._size and    return the value"""
+        """remove the node at the head of the linked_list, decrement the ._size and return the value"""
         val = self.head
         self.head = self.head._next
         self._size -= 1
