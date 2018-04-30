@@ -1,12 +1,10 @@
 """Create a Hash Table class with linked lists as buckets."""
-from functools import reduce
-from .linked_list.linked import LinkedList
 
 
-class Hash_Node:
+class HashNode:
     """Create the node class for a hash_linked_list."""
 
-    def __init__(self, val, key=None, next=None):
+    def __init__(self, key, val, next=None):
         """Identify this as a constructor a hash table Linked List node."""
         if val is None:
             raise TypeError('The value cannot be none')
@@ -24,7 +22,7 @@ class Hash_Node:
         return str(self.val)
 
 
-class Hash_Linked_List:
+class HashLinkedList:
     """Create the hash_linked_list class."""
 
     def __init__(self):
@@ -40,10 +38,10 @@ class Hash_Linked_List:
         """Return linked list length when called."""
         return self._size
 
-    def insert(self, val):
+    def insert_new(self, key, val):
         """Add a node the front of the list."""
         try:
-            node = Hash_Node(val)
+            node = HashNode(key, val)
         except TypeError:
             raise TypeError('Cannot insert a value of none')
 
@@ -51,29 +49,34 @@ class Hash_Linked_List:
         self.head = node
         self._size += 1
 
-        return self.head
+    def insert(self, key, val):
+        """Insert a new value into the bucket at ther head of the list"""
+        try:
+            node = HashNode(key, val)
+        except TypeError:
+            raise TypeError('Cannot insert a value of none')
 
-    def remove(self):
-        """Remove the node at the head of the linked_list, decrement the ._size and return the value."""
-        val = self.head
-        self.head = self.head._next
-        self._size -= 1
-        return val
-    
-    def insert_before(self, key, value):
-        """add a new node with the new_value imediately before the first node with the value"""
-    
-        current = self.head
-
-        while current.key != key:
-            new_next = current
-            current = current._next
-        node._next = current
-        current = new_next
-        current._next = node
+        node._next = self.head
+        self.head = node
         self._size += 1
-        return node
 
+    def get(self, key):
+        """Get the value at a given key."""
+        while current.key != key:
+            current = current._next
+        return curent.val
+
+    def remove(self, key):
+        """Remove the node from the linked_list that matches the key and return the node."""
+        while current.key != key:
+            last = current
+            current = current._next
+        node = current
+        new_next = current.next
+        current = last
+        current._next = new_next
+        self._size -= 1
+        return node
 
 
 class HashTable:
@@ -98,11 +101,19 @@ class HashTable:
 
         self.buckets[index] = LinkedList()
 
+    def set(self, key, val):
+        """Insert a new value at the given key."""
+        self.hash_key(key)
+        if self.buckets[index]:
+            self.buckets[index].insert_new(key, val)
+        else:
+            self.buckets[index].insert(key, val)
+
     def get(self, key):
-        
-        return self.buckets[self.hash_key(key)]
+        """Get the value at the key."""
+        self.buckets[self.hash_key(key)].get(key)
 
     def remove(self, key):
+        """Remove the node from the bucket at the key."""
         temp = self.buckets[self.hash_key(key)]
-        self.buckets[self.hash_key(key)] = None
-        return temp
+        self.buckets[self.hash_key(key)].remove(key)
