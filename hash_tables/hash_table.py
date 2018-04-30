@@ -132,4 +132,3 @@ class HashTable:
                 return current.val
         else:
             return None
-        
