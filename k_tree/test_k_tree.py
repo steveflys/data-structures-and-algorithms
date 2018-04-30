@@ -72,8 +72,5 @@ def test_print_level_order_on_empty_tree():
 def test_find_matches_with_one_match(small_k_tree):
     """Ensure the find matches will find the matches."""
     answer = find_matches(small_k_tree, 6)
-<<<<<<< HEAD
+
     assert answer.root.val.val == 6
-=======
-    assert answer.root.val == 6
->>>>>>> 76feaabc9d995cddfa993cb24fb8e8c5d8896dea
