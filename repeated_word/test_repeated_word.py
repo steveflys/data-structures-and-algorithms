@@ -18,8 +18,8 @@ def test_repeated_word_with_no_repeated_words():
     assert repeated_word(testing) is False
 
 
-def test_repeated_word_with_numbers_and_no_repeated_words():
-    """Test the repeated_wrod function with a paragraph with numbers."""
-    testing = 'Write at least 3 test assertions for every 1 method that you define.'
+def test_repeated_word_with_numbers_and_repeated_words_with_different_cases():
+    """Test the repeated_word function with a paragraph with numbers."""
+    testing = 'Write at least 3 test assertions for every 1 method that you write.'
 
-    assert repeated_word(testing) is False
+    assert repeated_word(testing) == 'write'
