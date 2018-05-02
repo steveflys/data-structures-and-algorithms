@@ -49,23 +49,6 @@ class HashLinkedList:
         self.head = node
         self._size += 1
 
-    def remove(self, key):
-        """Remove the node from the linked_list that matches the key and return the node."""
-        current = self.head
-        while current.key != key:
-            last = current
-            current = current._next
-        node = current
-        if current._next:
-            new_next = current._next
-            current = last
-            current._next = new_next
-            self._size -= 1
-            return node
-        else:
-            self._size -= 1
-            return node
-
 
 class HashTable:
     """Create a Hash Table class with linked lists as buckets."""
@@ -73,7 +56,7 @@ class HashTable:
     def __init__(self, max_size=1024):
         """Identify this as a constructor for the Hash Table class."""
         self.max_size = max_size
-        self.buckets = [None] * self.max_size
+        self.buckets = [HashLinkedList()] * self.max_size
 
     def hash_key(self, key):
         """Make a hash key from a string."""
@@ -87,49 +70,47 @@ class HashTable:
         index = index % len(self.buckets)
         return index
 
-        self.buckets[index] = LinkedList()
-
     def set(self, key, val):
         """Insert a new value at the given key."""
         index = self.hash_key(key)
-        if self.buckets[index] is None:
-            self.buckets[index] = HashLinkedList()
-            self.buckets[index].insert(key, val)
-        else:
-            self.buckets[index].insert(key, val)
+        self.buckets[index].insert(key, val)
 
     def get(self, key):
-        """Get the value at the key."""
+        """Get the value(s) at the key."""
         index = self.hash_key(key)
         # import pdb; pdb.set_trace()
-        if self.buckets[index]:
+        value = []
+        if self.buckets[index]._size > 0:
             current = self.buckets[index].head
-            while current.key != key:
+            while current.next:
+                if current.key == key:
+                    value.append(current.val)
                 current = current._next
-            return current.val
+            if current.key == key:
+                    value.append(current.val)
+            return value
         else:
             return None
 
     def remove(self, key):
-        """Remove the node from the bucket at the key."""
+        """Remove the nodes from the bucket at the key and return the value(s)."""
         index = self.hash_key(key)
-        if self.buckets[index].head:
+        value = []
+        if self.buckets[index]._size > 0:
             current = self.buckets[index].head
-            while current.key != key:
+            while current.next:
                 last = current
-                current = current._next
-            node = current
-            if current is self.buckets[index].head:
-                val = current.val
-                current.val = None
-                return val
-            if current._next:
-                new_next = current._next
-                current = last
-                current._next = new_next
-                return current.val
-            else:
-                return current.val
+                if current.key == key:
+                    value.append(current.val)
+                    if current is self.buckets[index].head:
+                        val = current.val
+                        self.buckets[index].head = current
+                    if current._next:
+                        new_next = current._next
+                        current = last
+                        current._next = new_next
+            if current.key == key:
+                    value.append(current.val)
+            return value
         else:
             return None
-        
