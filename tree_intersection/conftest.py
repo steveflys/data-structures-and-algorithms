@@ -1,7 +1,6 @@
 """Make test fixtures for testing tree_intersection."""
-
 import pytest
-from ..binary_search_tree.bst import BST
+from .bst import BST
 
 
 @pytest.fixture
@@ -21,5 +20,19 @@ def second_bst():
 @pytest.fixture
 def third_bst():
     """Make the third bst."""
-    b = BST([4, 7, 20, 8, 2, 39])
+    b = BST([4, 7, 23, 8, 2, 39])
+    return b
+
+
+@pytest.fixture
+def fourth_bst():
+    """Make the fourth bst."""
+    b = BST(['dog', 'cat', 'fish', 'rat', 'parrot', 'snake'])
+    return b
+
+
+@pytest.fixture
+def fifth_bst():
+    """Make the fifth bst."""
+    b = BST(['dog', 'pet', 'fish', 'gerbil', 'parrot', 'snake'])
     return b
