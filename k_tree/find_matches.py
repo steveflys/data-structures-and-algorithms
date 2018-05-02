@@ -15,7 +15,6 @@ def find_matches(tree, val):
     tree.pre_order(find)
 
     if new.root:
-        # import pdb; pdb.set_trace()
         return new
     else:
         return False
