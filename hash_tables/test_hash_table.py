@@ -33,3 +33,13 @@ def test_get_on_hash_table_with_bad_key():
 def test_remove_on_new_hash_table(repeat_key_hash_table):
     """Test the remove function."""
     assert repeat_key_hash_table.remove('dog') == [3, 2, 1]
+
+
+def test_remove_actually_removes_nodes():
+    """Test the remove function."""
+    test_table = HashTable()
+    test_table.set('dog', 1)
+    test_table.set('dog', 2)
+    test_table.set('dog', 3)
+    test_table.remove('dog')
+    assert test_table.get('dog') == []
