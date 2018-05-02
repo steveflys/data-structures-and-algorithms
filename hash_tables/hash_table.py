@@ -98,13 +98,15 @@ class HashTable:
         value = []
         if self.buckets[index]._size > 0:
             current = self.buckets[index].head
+            if self.buckets[index].head.key == key:
+                value.append(current.val)
+                self.buckets[index].head = current._next
+                current = current._next
             while current._next:
                 # import pdb; pdb.set_trace()
                 last = current
                 if current.key == key:
                     value.append(current.val)
-                    if current is self.buckets[index].head:
-                        self.buckets[index].head._next = current._next
                     new_next = current._next
                     current = last
                     current._next = new_next
