@@ -108,11 +108,17 @@ class HashTable:
                 if current.key == key:
                     value.append(current.val)
                     new_next = current._next
+                    current.val = None
+                    current._next = None
+                    current.key = None
                     current = last
                     current._next = new_next
                 current = current._next
             if current.key == key:
                     value.append(current.val)
+                    current.val = None
+                    current._next = None
+                    current.key = None
             return value
         else:
             return None
