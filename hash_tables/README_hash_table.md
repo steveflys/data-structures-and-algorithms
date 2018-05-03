@@ -17,3 +17,4 @@ Write a Hash Tables class
 
 4-29-18 Version 0.0.1 made the table using a standard linked_list
 4-29-18 Version 0.0.2 updated with a hashed_linked_list with hash_nodes
+5-2-18 Version 0.1.0 updated the remove funtion and how the table will instanciate.
