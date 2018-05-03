@@ -27,7 +27,7 @@ def test_get_on_hash_table_with_bad_key():
     """Test the get function when the hash table does not contain the key."""
     new_hash_table = HashTable()
     new_hash_table.set('potato', 24)
-    assert new_hash_table.get('bannana') == []
+    assert new_hash_table.get('bannana') is None
 
 
 def test_remove_on_new_hash_table(repeat_key_hash_table):

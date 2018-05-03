@@ -25,6 +25,13 @@ def different_key_hash_table():
 
 
 @pytest.fixture
+def m_t_table():
+    """Make a hash table with multiple values and keys."""
+    h = HashTable()
+    return h
+
+
+@pytest.fixture
 def another_hash_table():
     """Make a hash table with multiple values and keys."""
     h = HashTable()
