@@ -32,7 +32,7 @@ class HashLinkedList:
 
     def __repr__(self):
         """Return head and size of linked list when called."""
-        return '<head> => {}, <_size> => {}'.format(self.head.val, self._size)
+        return '<head> => {}, <_size> => {}'.format(self.head.val if self.head else None, self._size)
 
     def __len__(self):
         """Return linked list length when called."""
@@ -56,7 +56,7 @@ class HashTable:
     def __init__(self, max_size=1024):
         """Identify this as a constructor for the Hash Table class."""
         self.max_size = max_size
-        self.buckets = [HashLinkedList()] * self.max_size
+        self.buckets = [HashLinkedList() for _ in range(self.max_size)]
 
     def hash_key(self, key):
         """Make a hash key from a string."""
