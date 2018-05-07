@@ -1,28 +1,18 @@
-# """Do a selection sort of a list of elements"""
+"""Do a selection sort of a list of elements."""
 
 
-# def selection_sort(list):
-#     """Define the selection sort algorithm"""
-#     i = 0
-#     for i in range(0, len(list)-1, +1):
-#         smallest = list[i]
-#         while i < len(list):
-#         i += 1
-#         if list[i] > smallest:
-#             smallest = list[i]
+def selection_sort(my_list):
+    """Define the selection sort algorithm."""
+    if len(my_list) < 1:
+        return my_list
+    for index in range(0, len(my_list)-1, +1):
+        index_of_min = index
+        for location in range(index, len(my_list)):
+            if my_list[location] < my_list[index_of_min]:
+                index_of_min = location
 
+        temp = my_list[index]
+        my_list[index] = my_list[index_of_min]
+        my_list[index_of_min] = temp
 
-# def selectionSort(alist):
-#     for fillslot in range(len(alist)-1, 0, -1):
-#         positionOfMax = 0
-#         for location in range(1, fillslot+1):
-#             if alist[location]>alist[positionOfMax]:
-#                 positionOfMax = location
-
-#         temp = alist[fillslot]
-#         alist[fillslot] = alist[positionOfMax]
-#         alist[positionOfMax] = temp
-
-# alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-# selectionSort(alist)
-# print(alist)
+    return my_list
