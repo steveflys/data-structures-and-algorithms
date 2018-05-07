@@ -38,7 +38,7 @@ def merge_sort(my_list):
     return my_list
 
 
-"""This is a nonrecursive merge-sort with a Big O of 1 for space. 
+"""This is a nonrecursive merge-sort with a Big O of 1 for space.
 I do not completly understand it, but I will at some point."""
 # def merge_sort(my_list):
 #     """Inplace merge sort of array without recursive. The basic idea
