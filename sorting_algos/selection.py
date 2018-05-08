@@ -3,7 +3,7 @@
 
 def selection_sort(my_list):
     """Define the selection sort algorithm."""
-    if len(my_list) < 1:
+    if len(my_list) < 2:
         return my_list
     for index in range(0, len(my_list)-1, +1):
         index_of_min = index
