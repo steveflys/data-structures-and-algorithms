@@ -1,5 +1,5 @@
 ## Merge Sort
- - Write a function that accepts an array of unsorted integers, and returns a sorted array by a recursive quickesort algorithm.
+ - Write a function that accepts an array of unsorted integers, and returns a sorted array by a recursive quicksort algorithm.
 
 * Version 0.0.1
 
