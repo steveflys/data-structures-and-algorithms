@@ -1,62 +1,26 @@
-def quickSort(arr):
-    less = []
-    pivotList = []
-    more = []
-    if len(arr) <= 1:
-        return arr
+"""
+Write a function that accepts an array of unsorted integers,
+and returns a sorted array by a recursive quicksort algorithm.
+"""
+
+
+def quicksort(my_list):
+    """Define a recursive quicksort function."""
+    left = []
+    pivot_list = []
+    right = []
+    if len(my_list) < 2:
+        return my_list
     else:
-        pivot = arr[0]
-        for i in arr:
-            if i < pivot:
-                less.append(i)
-            elif i > pivot:
-                more.append(i)
+        pivot = my_list[0]
+
+        for item in my_list:
+            if item < pivot:
+                left.append(item)
+            elif item > pivot:
+                right.append(item)
             else:
-                pivotList.append(i)
-        less = quickSort(less)
-        more = quickSort(more)
-        return less + pivotList + more
-
-
-
-def quickSort(alist):
-
-  quickSortHelper(alist,0,len(alist)-1)
-
-def quickSortHelper(alist,first,last):
-
-  if first<last:
-      splitpoint = partition(alist,first,last)
-      quickSortHelper(alist,first,splitpoint-1)
-      quickSortHelper(alist,splitpoint+1,last)
-
-def partition(alist,first,last):
-
-  pivotvalue = alist[first]
-  leftmark = first+1
-  rightmark = last
-  done = False
-
-  while not done:
-      while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
-          leftmark = leftmark + 1
-
-      while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
-          rightmark = rightmark -1
-
-      if rightmark < leftmark:
-          done = True
-      else:
-          temp = alist[leftmark]
-          alist[leftmark] = alist[rightmark]
-          alist[rightmark] = temp
-
-  temp = alist[first]
-  alist[first] = alist[rightmark]
-  alist[rightmark] = temp
-
-  return rightmark
-
-alist = [54,26,93,17,77,31,44,55,20]
-quickSort(alist)
-print(alist)
+                pivot_list.append(item)
+        left = quicksort(left)
+        right = quicksort(right)
+        return left + pivot_list + right

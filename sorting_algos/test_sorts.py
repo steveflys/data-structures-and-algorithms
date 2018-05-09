@@ -1,7 +1,8 @@
 """Made tersts for the sort functions."""
 
-from .merge import merge_sort
+from .mergesort import merge_sort
 from .selection import selection_sort
+from .quicksort import quicksort
 
 
 def test_merge_sort_on_integers():
@@ -36,9 +37,29 @@ def test_selection_sort_on_words():
 
 def test_selection_sort_with_neg():
     """Test the selection sort on integers with neg integer."""
-    assert merge_sort([54, 26, 93, 17, 77, 31, 44, -55, 20]) == [-55, 17, 20, 26, 31, 44, 54, 77, 93]
+    assert selection_sort([54, 26, 93, 17, 77, 31, 44, -55, 20]) == [-55, 17, 20, 26, 31, 44, 54, 77, 93]
 
 
 def test_selection_sort_with_floats():
     """Test the selection sort on integers with neg integer."""
     assert selection_sort([54, 26.01, 93, 17, 77, 26, 44, -55, 20]) == [-55, 17, 20, 26, 26.01, 44, 54, 77, 93]
+
+
+def test_quicksort_on_integers():
+    """Test the merge sort on integers."""
+    assert quicksort([54, 26, 93, 17, 77, 31, 44, 55, 20]) == [17, 20, 26, 31, 44, 54, 55, 77, 93]
+
+
+def test_quicksort_on_words():
+    """Test the selection sort on words."""
+    assert quicksort(['cat', 'dog', 'snake', 'gerbil']) == ['cat', 'dog', 'gerbil', 'snake']
+
+
+def test_quicksort_with_neg():
+    """Test the selection sort on integers with neg integer."""
+    assert quicksort([54, 26, 93, 17, 77, 31, 44, -55, 20]) == [-55, 17, 20, 26, 31, 44, 54, 77, 93]
+
+
+def test_quicksort_with_floats():
+    """Test the selection sort on integers with neg integer."""
+    assert quicksort([54, 26.01, 93, 17, 77, 26, 44, -55, 20]) == [-55, 17, 20, 26, 26.01, 44, 54, 77, 93]
