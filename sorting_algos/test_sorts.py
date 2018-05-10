@@ -74,3 +74,8 @@ def test_radix_sort_on_integers():
 def test_radix_sort_on_integers_of_diff_lengths():
     """Test the merge sort on integers of diffeerent lengths."""
     assert radix_sort([540, 2, 9113, 17, 707, 31, 4, 55555, 20]) == [2, 4, 17, 20, 31, 540, 707, 9113, 55555]
+
+
+def test_radix_sort_on_list_of_one():
+    """Test the merge sort on integers of diffeerent lengths."""
+    assert radix_sort([540]) == [540]
