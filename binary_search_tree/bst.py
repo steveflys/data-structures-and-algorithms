@@ -1,7 +1,12 @@
 
+"""Define the Search Tree Node calss and the Binary Search Tree class."""
+
+
 class Node:
+    """Define the Search Tree Node class."""
 
     def __init__(self, val):
+        """Identify this as a constructor a node."""
         self.val = val
         self.left = None
         self.right = None
@@ -10,27 +15,33 @@ class Node:
             return('Node val: {}, Right: {}, Left: {}'.format(self.val, self.right.val, self.left.val))
 
         def __str__(self):
+            """Make the str method for the Node."""
             return str(self.val)
 
 
 class BST:
-    def __init__(self):
+    """Define the Binary Search Tree class."""
+
+    def __init__(self, iterable=[]):
+        """Identify this as a constructor a BST."""
         self.root = None
 
         if not isinstance(iterable, (list, dict, tuple)):
-            """this checks if the iterable is a true iterable and inserts each value as a new node"""
+            """Checks if the iterable is a true iterable and inserts each value as a new node."""
             raise TypeError('Iterable must be a list, dict, or tuple')
         for i in iterable:
             self.insert(i)
 
     def __repr__(self):
+        """Make the repr method for the BST."""
         return 'BST root {}'.format(self.root.val)
 
     def __str__(self):
+        """Make the str method for the BST."""
         return str(self.root.val)
 
     def insert(self, val):
-        """inserts new nodes into the correct side of the tree""" 
+        """Insert new nodes into the correct side of the tree."""
         node = Node(val)
         current = self.root
 
@@ -56,7 +67,7 @@ class BST:
         return node
 
     def in_order(self, operation):
-        """does an operation on the nodes in the tree in a sorted order"""
+        """Perform an operationon the nodes in the tree in a sorted order."""
         def _walk(node=None):
             if node is None:
                 return
@@ -72,7 +83,7 @@ class BST:
         _walk(self.root)
 
     def pre_order(self, operation):
-        """does an operation on the nodes in the tree when passing the left side by traversing the left tree, then right tree"""
+        """Perform an operationon the nodes in the tree on left tree, then right tree."""
         def _walk(node=None):
             if node is None:
                 return
@@ -88,6 +99,7 @@ class BST:
         _walk(self.root)
 
     def post_order(self, operation):
+        """Perform an operationon the nodes in the tree in a post order."""
         def _walk(node=None):
             if node is None:
                 return
